@@ -1,11 +1,5 @@
 ---
-const { title, date, favori } = Astro.props;
+const { ...offre } = Astro.props;
 ---
 
-<div x-data=`{ favori: '${favori}'}` x-bind:class="">
-    <ul>
-        <li>{title}</li>
-        <li>{date}</li>
-        <li>{favori}</li>
-    </ul>
-</div>
+<li>{offre.nomMaison}</li>
