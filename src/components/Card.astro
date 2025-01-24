@@ -1,0 +1,11 @@
+---
+const { title, date, favori } = Astro.props;
+---
+
+<div x-data=`{ favori: '${favori}'}` x-bind:class="">
+    <ul>
+        <li>{title}</li>
+        <li>{date}</li>
+        <li>{favori}</li>
+    </ul>
+</div>
