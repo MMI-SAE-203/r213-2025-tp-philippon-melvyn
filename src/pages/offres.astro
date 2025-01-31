@@ -1,10 +1,11 @@
 ---
 // offres.astro
 import Card from "../components/Card.astro";
-import { getOffres } from "../js/backend.mjs"; // Import de la fonction getOffres
+import { getOffres } from "../js/backend.mjs";
 import Base from "../layouts/Base.astro";
 
-const offres = await getOffres(); // Appel à la fonction pour récupérer les offres depuis PocketBase
+const offres = await getOffres();
+console.log(offres);
 ---
 
 <Base titre="Offres">
