@@ -1,3 +1,4 @@
+//astro.config.mjs
 // @ts-check
 import { defineConfig } from 'astro/config';
 

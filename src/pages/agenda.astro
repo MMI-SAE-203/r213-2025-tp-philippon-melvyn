@@ -1,28 +1,14 @@
 ---
-import layout from "../layouts/layout.astro";
+//agenda.astro
+//@ts-nocheck
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import { getEvents } from "../js/backend.mjs";
 
-const events = [
-    {
-        title: "Conférence sur les astres",
-        date: "Lundi 12 Juillet",
-        favori: true,
-    },
-    {
-        title: "Atelier sur les étoiles",
-        date: "Mardi 13 Juillet",
-        favori: false,
-    },
-];
+const events = await getEvents();
 ---
 
-<layout>
-    <h1>Agenda</h1>
-    {
-        events.map((event) => {
-            <ul>
-                <li>titre: {event.title}</li>
-                <li>date: {event.date}</li>
-            </ul>;
-        })
-    }
-</layout>
+<Layout>
+    <h1 class="text-6xl">Agenda</h1>
+    {events.map((event) => <Card {...event} />)}
+</Layout>
