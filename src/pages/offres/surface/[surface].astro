@@ -1,0 +1,11 @@
+---
+import { getOffre } from "../../../js/backend.mjs";
+import Base from "../../../layouts/Base.astro";
+import type Id from "../[id].astro";
+
+const { surface } = Astro.params; 
+const offres = await getOffre();
+---
+
+<Base titre={surface}>
+</Base>

@@ -1,10 +1,9 @@
 ---
-import { getOffres } from "../../js/backend.mjs";
 import { getOffre } from "../../js/backend.mjs";
 import Base from "../../layouts/Base.astro";
 
 const { id } = Astro.params;
-const offre = await getOffre();
+const offre = await getOffre(id);
 if (!offre) {
     return Astro.redirect("/offres");
 }
