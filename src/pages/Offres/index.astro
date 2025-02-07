@@ -1,8 +1,11 @@
 ---
 // offres.astro
-import Card from "../components/Card.astro";
-import { getOffres } from "../js/backend.mjs";
-import Base from "../layouts/Base.astro";
+import Card from "../../components/Card.astro";
+import { getOffres } from "../../js/backend.mjs";
+import Base from "../../layouts/Base.astro";
+
+
+
 
 const offres = await getOffres();
 console.log(offres);
@@ -18,7 +21,7 @@ console.log(offres);
             <span x-show="showFavorites">Afficher les favoris</span>
             <span x-show="!showFavorites">Afficher tout</span>
         </button>
-
+        
         <div x-show="showFavorites">
             {
                 offres
@@ -30,4 +33,5 @@ console.log(offres);
             {offres.map((offre) => <Card {...offre} />)}
         </div>
     </div>
+    
 </Base>

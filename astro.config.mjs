@@ -11,3 +11,4 @@ export default defineConfig({
   integrations: [tailwind()],
   adapter: netlify()
 });
+
