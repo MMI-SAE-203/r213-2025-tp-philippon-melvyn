@@ -1,9 +1,10 @@
 ---
 //Card.astro
-const { nomMaison, img } = Astro.props;
+const { ...offre } = Astro.props;
 ---
 
 <div class="border-gray-300">
-    <h2 class="text-xl font-bold mt-4">{nomMaison}</h2>
-    <img src={img} alt={nomMaison} class="w-full h-auto" />
+    <h2 class="text-xl font-bold mt-4">{offre.nomMaison}</h2>
+    <img src={offre.img} alt={offre.nomMaison} class="w-full h-auto" />
 </div>
+<a href={`/offres/${offre.id}`}>Voir plus</a>
