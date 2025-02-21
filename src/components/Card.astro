@@ -1,10 +1,21 @@
 ---
-//Card.astro
 const { ...offre } = Astro.props;
 ---
 
-<div class="border-gray-300">
+<script>
+    //@ts-nocheck
+    import { setFavori } from "../js/backend.mjs";
+    window.setFavori = setFavori;
+</script>
+
+<div
+    class="border-gray-300" x-data={`{favori: ${offre.favori}, clickFavori() {this.favori = !this.favori; setFavori(${JSON.stringify(offre)});}}`}
+>
     <h2 class="text-xl font-bold mt-4">{offre.nomMaison}</h2>
     <img src={offre.img} alt={offre.nomMaison} class="w-full h-auto" />
+
+    <button class="absolute bottom-0 left-0 p-2 text-black rounded-br-lg" @click="clickFavori">
+        <img :src="favori ? 'favorite_filled.png' : 'favorite.png'" alt="Favorite Icon" class="w-6 h-6"/>
+    </button>
 </div>
 <a href={`/offres/${offre.id}`}>Voir plus</a>

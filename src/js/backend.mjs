@@ -91,3 +91,27 @@ export async function getOffre(id) {
         return null;
     }
 }
+
+export async function getAgents() {
+    try {
+        return await db.collection('agents').getFullList();
+    } catch (error) {
+        console.error("Erreur lors de la récupération des agents :", error);
+        return [];
+    }
+}
+
+export async function getOffresParAgent(agentId) {
+    try {
+        return await db.collection('maison').getFullList({
+            filter: `agent = '${agentId}'`
+        });
+    } catch (error) {
+        console.error("Erreur lors de la récupération des offres :", error);
+        return [];
+    }
+}
+
+export async function setFavori(house) {
+    await pb.collection('maison').update(house.id, { favori: !house.favori });
+}
